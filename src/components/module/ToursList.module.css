@@ -1,0 +1,75 @@
+.tours {
+  max-width: 1188px;
+  margin: 0 auto 109px;
+}
+.tours h3 {
+  margin-bottom: 11px;
+  font-size: 32px;
+  color: #000000;
+  letter-spacing: 1px;
+}
+.tours__list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(278px, 1fr));
+  justify-content: center;
+  grid-gap: 30px 24.75px;
+}
+.tours__item {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.tours__item img {
+  width: 100%;
+  height: auto;
+}
+.tours__info {
+  padding: 0 8px 8px;
+}
+.tours__info h4 {
+  font-size: 22px;
+  color: #000000;
+  margin-bottom: 6px;
+}
+.tours__info p {
+  font-size: 15px;
+  color: rgba(40, 40, 40, 0.7);
+}
+.tours__details a {
+  display: inline-block;
+  background-color: var(--primary-color);
+  text-align: center;
+  color: #ffffff;
+  font-size: 15px;
+  width: 64px;
+  height: 25px;
+  border-radius: 4px;
+}
+.tours__details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 8px;
+}
+.tours__details .priceWrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.priceWrapper .price {
+  color: var(--complementry-color);
+  font-family: var(--font-vazirmatn), sans-serif;
+}
+.priceWrapper .currency {
+  font-size: var(--font-12);
+  color: #000000;
+  font-family: var(--font-vazirmatn), sans-serif;
+}
+.textEllipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: 100%;
+}
