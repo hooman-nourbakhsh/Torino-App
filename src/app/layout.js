@@ -1,4 +1,6 @@
 import { yekanbakh, vazirmatn } from "@/utils/fonts";
+import QueryProvider from "@/providers/QueryProvider";
+
 import "@/app/globals.css";
 
 export const metadata = {
@@ -9,7 +11,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${vazirmatn.variable} ${yekanbakh.variable}`}>{children}</body>
+      <body className={`${vazirmatn.variable} ${yekanbakh.variable}`}>
+        <QueryProvider>{children}</QueryProvider>
+      </body>
     </html>
   );
 }
