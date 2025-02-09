@@ -1,6 +1,7 @@
 import { yekanbakh, vazirmatn } from "@/utils/fonts";
 import QueryProvider from "@/providers/QueryProvider";
 import Layout from "@/layout/Layout";
+import { ToastContainer } from "react-toastify";
 import "@/app/globals.css";
 
 export const metadata = {
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
         <QueryProvider>
           <Layout>{children}</Layout>
         </QueryProvider>
+        <ToastContainer autoClose={2500} rtl={true} pauseOnHover={false} pauseOnFocusLoss={false} />
       </body>
     </html>
   );

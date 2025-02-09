@@ -1,9 +1,21 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useGetUserData } from "@/services/queries";
 import Profile from "@icons/profile.svg";
+import AuthForm from "@/template/authForm";
 import styles from "@/layout/Header.module.css";
 
 export default function Header() {
+  const { data } = useGetUserData();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleAuthModal = () => {
+    setIsOpen((prev) => !prev);
+  };
+
   return (
     <header className={styles.nav}>
       <Image src={"/images/Logo.png"} alt="logo" width={144} height={44} />
@@ -26,9 +38,18 @@ export default function Header() {
           </li>
         </ul>
       </div>
-      <button className={styles.nav__profile}>
-        <Profile /> ورود | ثبت نام
-      </button>
+
+      {data?.data ? (
+        <Link href="/profile" className={styles.nav__profile}>
+          <Profile /> {data?.data.mobile}
+        </Link>
+      ) : (
+        <button className={styles.nav__profile} onClick={toggleAuthModal}>
+          <Profile /> ورود | ثبت نام
+        </button>
+      )}
+
+      <AuthForm isOpen={isOpen} setIsOpen={setIsOpen} />
     </header>
   );
 }
