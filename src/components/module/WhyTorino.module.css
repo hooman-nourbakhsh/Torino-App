@@ -1,0 +1,52 @@
+.whyTorino {
+  max-width: 1188px;
+  margin: 0 auto 100px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 90px;
+}
+.whyTorino__title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.whyTorino__title h2,
+.whyTorino__title strong {
+  font-family: var(--font-vazirmatn), sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+  color: var(--text-color);
+}
+.whyTorino__title strong {
+  color: var(--primary-color);
+}
+.whyTorino__title .circle {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(180deg, #28a745 0%, #10411b 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.whyTorino__title .question {
+  font-family: var(--font-vazirmatn), sans-serif;
+  font-size: 38px;
+  font-weight: 900;
+  color: #ffffff;
+}
+.whyTorino__content h3 {
+  margin-top: 30px;
+  font-family: var(--font-vazirmatn), sans-serif;
+  font-weight: 500;
+  font-size: var(--font-24);
+  color: var(--text-color);
+}
+.whyTorino__content p {
+  margin-top: 16px;
+  font-family: var(--font-vazirmatn), sans-serif;
+  font-weight: 300;
+  font-size: var(--font-20);
+  text-align: justify;
+  line-height: 44px;
+}

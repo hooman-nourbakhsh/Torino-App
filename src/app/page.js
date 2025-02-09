@@ -1,3 +1,15 @@
+import Hero from "@/module/Hero";
+import CTA from "@/module/CTA";
+import WhyTorino from "@/module/WhyTorino";
+import Features from "@/module/Features";
+
 export default function Home() {
-  return <h1>Hello World</h1>;
+  return (
+    <>
+      <Hero />
+      <CTA />
+      <WhyTorino />
+      <Features />
+    </>
+  );
 }

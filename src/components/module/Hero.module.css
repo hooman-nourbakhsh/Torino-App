@@ -1,0 +1,15 @@
+.hero img {
+  width: 100%;
+  margin-bottom: 17px;
+}
+.hero h2,
+.hero span {
+  text-align: center;
+  font-weight: 600;
+  font-size: var(--font-28);
+  color: #595959;
+  letter-spacing: 1px;
+}
+.hero span {
+  color: var(--primary-color);
+}
