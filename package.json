@@ -1,0 +1,23 @@
+{
+  "name": "torino",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.23",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "eslint": "^9.20.0",
+    "eslint-config-next": "^15.1.6",
+    "glob": "^11.0.1",
+    "rimraf": "^6.0.1"
+  }
+}

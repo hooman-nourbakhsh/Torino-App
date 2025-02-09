@@ -1,0 +1,34 @@
+:root {
+  --primary-color: #28a745;
+  --secondary-color: #10411b;
+  --complementry-color: #009eca;
+  --text-color: #282828;
+  --font-28: 1.75rem;
+  --font-24: 1.5rem;
+  --font-20: 1.25rem;
+  --font-18: 1.125rem;
+  --font-14: 0.875rem;
+  --font-12: 0.75rem;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-yekanbakh), sans-serif;
+  font-weight: 400;
+}
+html,
+body {
+  max-width: 1440px;
+  margin: auto;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+button,
+input,
+textarea {
+  font-family: inherit;
+}
