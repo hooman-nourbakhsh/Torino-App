@@ -14,7 +14,9 @@
     "next": "14.2.23",
     "qs": "^6.14.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-toastify": "^11.0.3",
+    "react18-input-otp": "^1.1.4"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
