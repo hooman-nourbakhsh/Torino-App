@@ -1,0 +1,34 @@
+.container {
+  max-width: 1188px;
+  margin: 36px auto;
+  display: grid;
+  grid-template-columns: 284px 1fr;
+  gap: 32px;
+}
+.profile {
+  width: 284px;
+  height: fit-content;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.profile ul {
+  padding: 12px 12px 0;
+}
+.profile li {
+  list-style-type: none;
+  margin: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.profile li:last-child {
+  border: none;
+}
+.profile li:hover {
+  background-color: var(--primary-color);
+}
+.profile li a {
+  vertical-align: top;
+  margin-right: 8px;
+  color: var(--text-color);
+}
