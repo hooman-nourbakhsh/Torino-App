@@ -1,4 +1,4 @@
-import styles from "./ModalContainer.module.css";
+import styles from "@/modal/ModalContainer.module.css";
 
 export default function ModalContainer({ children, isOpen, setIsOpen }) {
   if (!isOpen) return null;

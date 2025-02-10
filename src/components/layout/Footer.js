@@ -39,6 +39,7 @@ export default function Footer() {
           </div>
         </div>
       </footer>
+      <span className="line"></span>
       <small style={{ display: "block", textAlign: "center", fontSize: "15px", color: "#000", margin: "15px 0" }}>
         کلیه حقوق این وب سایت متعلق به تورینو میباشد.
       </small>

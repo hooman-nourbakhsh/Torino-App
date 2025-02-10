@@ -10,7 +10,7 @@ import Bus from "@icons/bus.svg";
 import Capacity from "@icons/profile-2user.svg";
 import Security from "@icons/security.svg";
 
-import styles from "./styles.module.css";
+import styles from '@/template/tourDetailsPage/styles.module.css'
 
 export default function TourDetailsPage({ tourData }) {
   console.log(tourData);

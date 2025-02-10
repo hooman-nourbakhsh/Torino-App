@@ -1,11 +1,9 @@
 .features {
   max-width: 1188px;
-  margin: 0 auto 30px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 90px;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 20px 0;
 }
 .features__item {
