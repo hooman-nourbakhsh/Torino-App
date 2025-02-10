@@ -1,0 +1,103 @@
+.tourDetails {
+  background-color: #f3f3f3;
+  padding: 36px 0 99px;
+}
+.container {
+  padding: 30px 20px;
+  background-color: #fff;
+  max-width: 1188px;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 1px solid #00000033;
+}
+.details {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+}
+.details img {
+  border-radius: 12px;
+}
+.details__content h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+}
+.details__content h3 {
+  font-family: var(--font-vazirmatn), sans-serif;
+  font-size: var(--font-20);
+  color: var(--text-color);
+  margin: 16px 0 24px;
+}
+.details__features li {
+  display: inline-block;
+  margin-left: 32px;
+}
+.details__features li span {
+  font-size: var(--font-20);
+  color: #7d7d7d;
+  margin-right: 8px;
+  vertical-align: top;
+  word-spacing: 3px;
+}
+.details__price {
+  margin: 32px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.details__price h4 {
+  font-family: var(--font-vazirmatn), sans-serif;
+  font-weight: 500;
+  font-size: var(--font-28);
+  color: var(--complementry-color);
+}
+.details__price h4 span {
+  font-family: var(--font-vazirmatn), sans-serif;
+  font-weight: 400;
+  font-size: var(--font-14);
+  color: #000;
+  margin-right: 5px;
+}
+.details__price a {
+  font-family: var(--font-vazirmatn), sans-serif;
+  font-size: var(--font-24);
+  color: #fff;
+  background-color: var(--primary-color);
+  padding: 8px;
+  border-radius: 10px;
+  width: 204px;
+  height: 56px;
+  text-align: center;
+}
+.info {
+  margin: 30px auto 0;
+}
+.info ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+.info li {
+  padding: 10px 40px;
+  border-left: 1px solid rgba(0, 0, 0, 0.25);
+}
+.info li:first-child {
+  padding-right: 0;
+}
+.info li:last-child {
+  border: none;
+}
+.info li span {
+  font-family: var(--font-vazirmatn), sans-serif;
+  font-size: var(--font-18);
+  color: #444444;
+  margin-right: 8px;
+  vertical-align: super;
+  word-spacing: 3px;
+}
+.info li p {
+  font-family: var(--font-vazirmatn), sans-serif;
+  font-weight: 500;
+  color: #000;
+}
