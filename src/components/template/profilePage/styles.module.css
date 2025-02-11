@@ -1,0 +1,120 @@
+.form__container {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 12px 12px 16px 20px;
+  height: fit-content;
+}
+.infoHeader {
+  display: flex;
+  justify-content: space-between;
+}
+.infoHeader h2 {
+  font-size: 16px;
+  margin-bottom: 28px;
+}
+.submit button {
+  vertical-align: top;
+  margin-right: 8px;
+  background: transparent;
+  border: none;
+  color: var(--complementry-color);
+  font-size: var(--font-14);
+  cursor: pointer;
+}
+.form__edit {
+  max-width: 600px;
+  width: max-content;
+  height: max-content;
+  border-radius: 20px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+  padding: 30px;
+}
+.form__inputs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.form__inputs input {
+  width: 300px;
+  height: 45px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 8px;
+  text-align: center;
+  margin: 10px auto;
+  font-size: var(--font-18);
+}
+.form__inputs input:focus {
+  outline: none;
+  border: 1px dashed var(--complementry-color);
+}
+.form__inputs .buttons {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+.form__inputs button {
+  width: 40%;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: var(--font-18);
+  cursor: pointer;
+  margin: 20px 5px 0;
+}
+.form__inputs button[type="submit"] {
+  background-color: var(--primary-color);
+}
+.form__inputs button[type="button"] {
+  background-color: red;
+}
+.infoGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.row {
+  display: flex;
+}
+.row span:nth-child(odd) {
+  font-size: 14px;
+  font-weight: 300;
+  width: 15%;
+  text-align: right;
+}
+.row span:nth-child(even) {
+  font-weight: 500;
+  font-family: var(--font-vazirmatn), sans-serif;
+  font-size: var(--font-14);
+  color: var(--text-color);
+  width: 30%;
+}
+.form__inputs select {
+  font-size: var(--font-18);
+  width: 15%;
+  height: 35px;
+}
+.form__selects {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  margin: 10px 0;
+}
+.form__selects input {
+  width: 30%;
+  height: 40px;
+  margin: 0;
+  padding: 0px;
+  font-size: var(--font-18);
+}
+.error {
+  color: red;
+  font-size: var(--font-14);
+  margin: 4px;
+  min-height: 16px;
+}
