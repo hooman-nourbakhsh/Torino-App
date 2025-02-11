@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <Image src={"/images/Logo.png"} alt="logo" width={144} height={44} />
+        <Image src={"/images/Logo.png"} alt="logo" width={144} height={44} priority />
         <div className={styles.nav__list}>
           <ul>
             <li>

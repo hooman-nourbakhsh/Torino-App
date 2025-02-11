@@ -18,3 +18,13 @@ export const useCheckOTP = () => {
   };
   return useMutation({ mutationFn, onSuccess });
 };
+
+export const useUpdateUserInfo = () => {
+  const queryClient = useQueryClient();
+  const mutationFn = (data) => api.put("/user/profile", data);
+
+  const onSuccess = () => {
+    queryClient.invalidateQueries({ queryKey: ["user-data"] });
+  };
+  return useMutation({ mutationFn, onSuccess });
+};
