@@ -1,0 +1,23 @@
+.errorContainer {
+  text-align: center;
+  margin-top: 5%;
+}
+.errorText {
+  font-size: var(--font-18);
+  font-weight: 700;
+  color: red;
+}
+.retryButton {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: var(--font-14);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.retryButton:hover {
+  background-color: darkgreen;
+}

@@ -1,12 +1,7 @@
-"use client";
-
-import { useState } from "react";
+import { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { toast } from "react-toastify";
 import { DatePicker } from "zaman";
-import { useGetUserData } from "@/services/queries";
-import { useUpdateUserInfo } from "@/services/mutations";
 import { personalInfoSchema } from "@/schema/index";
 import { SplitDate } from "@/utils/helper";
 import { e2p } from "@/utils/replaceNumber";
@@ -14,38 +9,22 @@ import ModalContainer from "@/modal/ModalContainer";
 import Edit from "@icons/edit.svg";
 import styles from "@/template/profilePage/styles.module.css";
 
-export default function PersonalInfo() {
-  const { data: { data: userData } = {} } = useGetUserData();
-  const { mutate, isPending } = useUpdateUserInfo();
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleAuthModal = () => {
-    setIsOpen((prev) => !prev);
-  };
-
+export default function PersonalInfoForm({ userData, submitHandler, isOpen, setIsOpen }) {
   const {
     register,
     handleSubmit,
+    setValue,
     control,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(personalInfoSchema),
   });
 
-  const submitHandler = (data) => {
-    if (isPending) return;
-
-    mutate(data, {
-      onSuccess: (data) => {
-        toast.success(data?.data.message);
-        setIsOpen(false);
-      },
-      onError: (error) => {
-        toast.error(`message: ${error?.data.message} - Code: ${error?.status}`);
-        console.log(error);
-      },
-    });
-  };
+  useEffect(() => {
+    if (userData?.birthDate) {
+      setValue("birthDate", userData.birthDate);
+    }
+  }, [userData, setValue]);
 
   return (
     <div className={styles.form__container} style={{ margin: "24px auto" }}>
@@ -53,7 +32,7 @@ export default function PersonalInfo() {
         <h2>اطلاعات شخصی</h2>
         <div className={styles.submit}>
           <Edit />
-          <button onClick={toggleAuthModal}>{"ویرایش اطلاعات"}</button>
+          <button onClick={setIsOpen}>{"ویرایش اطلاعات"}</button>
         </div>
       </div>
       <div className={styles.infoGrid}>
@@ -119,7 +98,7 @@ export default function PersonalInfo() {
 
             <div className={styles.buttons}>
               <button type="submit">تایید</button>
-              <button type="button" onClick={() => setIsOpen(false)}>
+              <button type="button" onClick={setIsOpen}>
                 انصراف
               </button>
             </div>

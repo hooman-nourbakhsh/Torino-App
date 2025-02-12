@@ -12,7 +12,7 @@ import Security from "@icons/security.svg";
 
 import styles from '@/template/tourDetailsPage/styles.module.css'
 
-export default function TourDetailsPage({ tourData }) {
+export default function TourDetails({ tourData }) {
   console.log(tourData);
   return (
     <section className={styles.tourDetails}>

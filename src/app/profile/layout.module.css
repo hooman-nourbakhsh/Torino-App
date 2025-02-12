@@ -16,10 +16,14 @@
 }
 .profile li {
   list-style-type: none;
-  margin: 10px 0;
+  margin: 5px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 8px;
 }
 .profile li:last-child {
   border: none;
@@ -29,6 +33,16 @@
 }
 .profile li a {
   vertical-align: top;
-  margin-right: 8px;
+  font-size: var(--font-14);
   color: var(--text-color);
+  flex-grow: 1;
+  padding: 12px 16px;
+}
+.profile li.active {
+  background: rgba(40, 167, 69, 0.25);
+}
+.profile li.active a,
+.profile li.active path {
+  color: var(--primary-color);
+  fill: var(--primary-color);
 }

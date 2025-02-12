@@ -64,7 +64,7 @@
   padding: 8px;
   font-size: var(--font-18);
   cursor: pointer;
-  margin: 20px 5px 0;
+  margin: 10px 5px 0;
 }
 .form__inputs button[type="submit"] {
   background-color: var(--primary-color);
@@ -79,6 +79,7 @@
 }
 .row {
   display: flex;
+  align-items: center;
 }
 .row span:nth-child(odd) {
   font-size: 14px;

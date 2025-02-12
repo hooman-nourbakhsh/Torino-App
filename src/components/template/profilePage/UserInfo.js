@@ -1,26 +1,12 @@
-"use client";
-
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { toast } from "react-toastify";
-import { useGetUserData } from "@/services/queries";
-import { useUpdateUserInfo } from "@/services/mutations";
 import { userInfo } from "@/schema/index";
 import { e2p } from "@/utils/replaceNumber";
 import ModalContainer from "@/modal/ModalContainer";
 import Edit from "@icons/edit.svg";
 import styles from "@/template/profilePage/styles.module.css";
 
-export default function UserInfoForm() {
-  const { data: { data: userData } = {} } = useGetUserData();
-  const { mutate, isPending } = useUpdateUserInfo();
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleAuthModal = () => {
-    setIsOpen((prev) => !prev);
-  };
-
+export default function UserInfoForm({ userData, submitHandler, isOpen, setIsOpen }) {
   const {
     register,
     handleSubmit,
@@ -29,27 +15,13 @@ export default function UserInfoForm() {
     resolver: yupResolver(userInfo),
   });
 
-  const submitHandler = (data) => {
-    if (isPending) return;
-    mutate(data, {
-      onSuccess: (data) => {
-        toast.success(data?.data.message);
-        setIsOpen(false);
-      },
-      onError: (error) => {
-        toast.error(`message: ${error?.data.message} - Code: ${error?.status}`);
-        console.log(error);
-      },
-    });
-  };
-
   return (
     <div className={styles.form__container}>
       <div className={styles.infoHeader}>
         <h2>اطلاعات حساب کاربری</h2>
         <div className={styles.submit}>
           <Edit />
-          <button onClick={toggleAuthModal}>{userData?.email ? "ویرایش اطلاعات" : "افزودن"}</button>
+          <button onClick={setIsOpen}>{userData?.email ? "ویرایش اطلاعات" : "افزودن"}</button>
         </div>
       </div>
 
@@ -71,7 +43,7 @@ export default function UserInfoForm() {
 
             <div className={styles.buttons}>
               <button type="submit">تایید</button>
-              <button type="button" onClick={() => setIsOpen(false)}>
+              <button type="button" onClick={setIsOpen}>
                 انصراف
               </button>
             </div>
