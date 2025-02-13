@@ -7,7 +7,6 @@ import { useUpdateUserInfo } from "@/services/mutations";
 import UserInfoForm from "@/template/profilePage/UserInfo";
 import PersonalInfoForm from "@/template/profilePage/PersonalInfo";
 import BankAccountInfoForm from "@/template/profilePage/BankAccountInfo";
-import styles from "@/app/profile/page.module.css";
 
 export default function ProfilePage() {
   const { data: { data } = {}, isLoading, refetch } = useGetUserData();
@@ -30,9 +29,9 @@ export default function ProfilePage() {
 
   if (!data)
     return (
-      <div className={styles.errorContainer}>
-        <p className={styles.errorText}>مشکلی وجود دارد، لطفاً دوباره تلاش کنید.</p>
-        <button onClick={() => refetch()} className={styles.retryButton}>
+      <div className="errorContainer">
+        <p className="errorText">مشکلی وجود دارد، لطفاً دوباره تلاش کنید.</p>
+        <button onClick={() => refetch()} className="retryButton">
           بارگیری مجدد
         </button>
       </div>
@@ -59,8 +58,18 @@ export default function ProfilePage() {
   return (
     <div>
       <UserInfoForm userData={data} submitHandler={submitHandler} isOpen={modalStates.userInfo} setIsOpen={() => toggleModal("userInfo")} />
-      <PersonalInfoForm userData={data} submitHandler={submitHandler} isOpen={modalStates.personalInfo} setIsOpen={() => toggleModal("personalInfo")} />
-      <BankAccountInfoForm userData={data} submitHandler={submitHandler} isOpen={modalStates.bankAccount} setIsOpen={() => toggleModal("bankAccount")} />
+      <PersonalInfoForm
+        userData={data}
+        submitHandler={submitHandler}
+        isOpen={modalStates.personalInfo}
+        setIsOpen={() => toggleModal("personalInfo")}
+      />
+      <BankAccountInfoForm
+        userData={data}
+        submitHandler={submitHandler}
+        isOpen={modalStates.bankAccount}
+        setIsOpen={() => toggleModal("bankAccount")}
+      />
     </div>
   );
 }

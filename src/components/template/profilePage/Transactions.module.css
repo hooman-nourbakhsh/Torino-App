@@ -1,0 +1,34 @@
+.container {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  max-width: 100%;
+}
+.table_wrapper {
+  height: 400px;
+  overflow-y: auto;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  table-layout: fixed;
+}
+.table thead {
+  background: #f3f3f3;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.table thead tr {
+  height: 55px;
+}
+.table th,
+.table td {
+  width: 25%;
+  padding: 20px 0 10px;
+  word-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
