@@ -1,0 +1,96 @@
+.container {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  padding: 0 20px;
+}
+.wrapper {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 16px auto;
+}
+.tour__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+.tour__header h4 {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  font-size: var(--font-14);
+  word-spacing: 2px;
+}
+.tour__header h4:nth-child(2) {
+  align-items: center;
+}
+.tour__details {
+  padding: 0 16px;
+  display: flex;
+  gap: 40px;
+}
+.tour__details p {
+  font-family: var(--font-vazirmatn), sans-serif;
+  font-size: var(--font-14);
+  color: rgba(0, 0, 0, 0.6);
+}
+.tour__details strong {
+  font-size: var(--font-14);
+  font-weight: 600;
+  color: #000;
+}
+.tour__details span {
+  margin: 0 4px;
+}
+.tour__info {
+  padding: 16px 16px 0;
+  display: flex;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+}
+.tour__info p {
+  font-size: var(--font-14);
+  color: rgba(0, 0, 0, 0.5);
+}
+.tour__info p strong {
+  font-family: var(--font-vazirmatn), sans-serif;
+  font-weight: 500;
+  font-size: var(--font-14);
+  color: var(--text-color);
+  margin-right: 8px;
+}
+.tour__info p strong span {
+  font-family: var(--font-vazirmatn), sans-serif;
+  font-weight: 300;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.tour__info > span {
+  border-left: 2px solid rgba(0, 0, 0, 0.2);
+  margin: 0 25px;
+}
+.statusBadge {
+  width: 89px;
+  height: 20px;
+  text-align: center;
+  padding: 2px 8px;
+  border-radius: 27px;
+  font-size: var(--font-12);
+}
+.green {
+  background-color: rgba(40, 167, 69, 0.3);
+  color: var(--primary-color);
+}
+.yellow {
+  background-color: rgba(209, 185, 0, 0.3);
+  color: rgba(209, 185, 0, 1);
+}
+.blue {
+  background-color: rgba(0, 102, 255, 0.3);
+  color: rgba(0, 102, 255, 1);
+}

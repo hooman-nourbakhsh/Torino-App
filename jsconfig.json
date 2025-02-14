@@ -5,6 +5,7 @@
       "@/public/*": ["public/*"],
       "@icons/*": ["public/icons/*"],
       "@/app/*": ["src/app/*"],
+      "@/constants/*": ["src/constants/*"],
       "@/element/*": ["src/components/element/*"],
       "@/layout/*": ["src/components/layout/*"],
       "@/modal/*": ["src/components/modal/*"],
