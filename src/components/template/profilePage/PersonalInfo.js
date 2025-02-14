@@ -3,7 +3,7 @@ import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { DatePicker } from "zaman";
 import { personalInfoSchema } from "@/schema/index";
-import { SplitDate } from "@/utils/helper";
+import { PersianDate, SplitDate } from "@/utils/helper";
 import { e2p } from "@/utils/replaceNumber";
 import ModalContainer from "@/modal/ModalContainer";
 import Edit from "@icons/edit.svg";
@@ -48,11 +48,7 @@ export default function PersonalInfoForm({ userData, submitHandler, isOpen, setI
           <span className={styles.label}>جنسیت</span>
           <span className={styles.value}>{userData?.gender === "male" ? "مرد" : userData?.gender === "female" ? "زن" : "ثبت نشده است"}</span>
           <span className={styles.label}>تاریخ تولد</span>
-          <span className={styles.value}>
-            {userData?.birthDate
-              ? new Date(userData.birthDate).toLocaleDateString("fa-IR", { day: "2-digit", month: "long", year: "numeric" })
-              : "ثبت نشده است"}
-          </span>
+          <span className={styles.value}>{userData?.birthDate ? PersianDate(userData.birthDate, "D MMM YYYY") : "ثبت نشده است"}</span>
         </div>
       </div>
 

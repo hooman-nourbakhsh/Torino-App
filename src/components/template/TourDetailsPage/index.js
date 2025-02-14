@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
+import { getTypeTour } from "@/constants/typeTour";
 import { e2p, sp } from "@/utils/replaceNumber";
 import UserTick from "@icons/user-tick.svg";
 import Map from "@icons/map.svg";
 import Guarantee from "@icons/medal-star.svg";
 import Routing from "@icons/routing.svg";
 import Calendar from "@icons/calendar.svg";
-import Bus from "@icons/bus.svg";
 import Capacity from "@icons/profile-2user.svg";
 import Security from "@icons/security.svg";
 
@@ -21,7 +21,7 @@ export default function TourDetails({ tourData }) {
           <Image src={tourData.image} alt={tourData.title} width={397} height={265} />
           <div className={styles.details__content}>
             <h2>{tourData.title}</h2>
-            <h3>{tourData.options.join(' ، ')}</h3>
+            <h3>{tourData.options.join(" ، ")}</h3>
             <ul className={styles.details__features}>
               <li>
                 <UserTick />
@@ -60,8 +60,8 @@ export default function TourDetails({ tourData }) {
               <p>{e2p(new Date(tourData.endDate).toLocaleDateString("fa-IR", { day: "2-digit", month: "long", year: "numeric" }))}</p>
             </li>
             <li>
-              <Bus /> <span>حمل و نقل</span>
-              <p>{tourData.fleetVehicle}</p>
+              {getTypeTour(tourData.fleetVehicle).icon} <span>حمل و نقل</span>
+              <p>{getTypeTour(tourData.fleetVehicle).label}</p>
             </li>
             <li>
               <Capacity /> <span>ظرفیت</span>
@@ -70,7 +70,7 @@ export default function TourDetails({ tourData }) {
             {tourData.insurance && (
               <li>
                 <Security /> <span>بیمه</span>
-                <p>بیمه ۵۰ هزار دیناری</p>
+                <p>بیمه ۵۰ هزار تومان</p>
               </li>
             )}
           </ul>

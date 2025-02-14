@@ -75,7 +75,8 @@
 }
 .info ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  column-gap: 16px;
   list-style: none;
 }
 .info li {
