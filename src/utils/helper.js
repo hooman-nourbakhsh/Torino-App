@@ -1,4 +1,5 @@
 import moment from "jalali-moment";
+import { e2p } from "@/utils/replaceNumber";
 
 export const flattenObject = (obj, delimiter = ".", prefix = "") => {
   const flattObject = Object.keys(obj).reduce((acc, k) => {
@@ -13,9 +14,9 @@ export const flattenObject = (obj, delimiter = ".", prefix = "") => {
 
 export const Date2Iso = (date) => new Date(date).toISOString();
 
-export const PersianDate = (date) => moment(date).locale("fa").format("HH:mm - YYYY/MM/DD");
-
 export const SplitDate = (date) => Date2Iso(date).split("T")[0];
+
+export const PersianDate = (date, format = "HH:mm - YYYY/MM/DD") => e2p(moment(date).locale("fa").format(format));
 
 export const getUUIDPart = (uuid, index) => {
   const parts = uuid.split("-");
