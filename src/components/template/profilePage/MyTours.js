@@ -2,12 +2,13 @@ import { e2p, sp } from "@/utils/replaceNumber";
 import { getUUIDPart, PersianDate } from "@/utils/helper";
 import { getTypeTour } from "@/constants/typeTour";
 import { getTourStatus } from "@/utils/tourStatus";
+import NothingFound from "@/element/NothingFound";
 import Tours from "@icons/tours.svg";
 import styles from "@/template/profilePage/MyTours.module.css";
 
 export default function MyTours({ myTours }) {
   if (!myTours || myTours.length === 0) {
-    return <p>هیچ توری یافت نشد.</p>;
+    return <NothingFound />;
   }
 
   const renderTourCard = (tour) => {
@@ -18,7 +19,7 @@ export default function MyTours({ myTours }) {
     const formattedEndDate = PersianDate(tour.endDate, "dddd D MMM YYYY");
 
     return (
-      <div className={styles.wrapper} key={tour.id}>
+      <div className={styles.wrapper} key={tour.id + Math.floor(Math.random() * 1000) + 1}>
         <div className={styles.tour__header}>
           <h4>
             <Tours />

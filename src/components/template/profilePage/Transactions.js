@@ -2,9 +2,14 @@ import { useState } from "react";
 import { e2p, sp } from "@/utils/replaceNumber";
 import { getUUIDPart, PersianDate } from "@/utils/helper";
 import Pagination from "@/module/Pagination";
+import NothingFound from "@/element/NothingFound";
 import styles from "@/template/profilePage/Transactions.module.css";
 
 export default function Transactions({ transactionsData }) {
+  if (!transactionsData || transactionsData.length === 0) {
+    return <NothingFound />;
+  }
+
   const [currentData, setCurrentData] = useState([]);
 
   return (
