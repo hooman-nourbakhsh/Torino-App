@@ -21,3 +21,10 @@ export const useGetUserTransactions = () => {
 
   return useQuery({ queryFn, queryKey });
 };
+
+export const useGetBasket = () => {
+  const queryFn = () => api.get("/basket");
+  const queryKey = ["user-basket"];
+
+  return useQuery({ queryFn, queryKey });
+};

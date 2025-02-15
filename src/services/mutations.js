@@ -28,3 +28,18 @@ export const useUpdateUserInfo = () => {
   };
   return useMutation({ mutationFn, onSuccess });
 };
+
+export const useAddToBasket = () => {
+  const mutationFn = (id) => api.put(`/basket/${id}`);
+  return useMutation({ mutationFn });
+};
+
+export const useCheckOutBasket = () => {
+  const queryClient = useQueryClient();
+  const mutationFn = (data) => api.post("/order", data);
+
+  const onSuccess = () => {
+    queryClient.invalidateQueries({ queryKey: ["user-tours", "user-transactions"] });
+  };
+  return useMutation({ mutationFn, onSuccess });
+};

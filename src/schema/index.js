@@ -17,6 +17,7 @@ export const personalInfoSchema = object({
     .typeError("لطفاً کد ملی را وارد کنید")
     .test("len", "کد ملی باید دقیقاً ۱۰ رقم باشد", (val) => val && val.toString().length === 10),
   birthDate: string().required("لطفاً تاریخ تولد را وارد کنید"),
+  gender: string().required("لطفاً جنسیت را انتخاب کنید"),
 });
 
 export const bankAccountSchema = object({

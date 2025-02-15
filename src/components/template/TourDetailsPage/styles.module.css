@@ -59,7 +59,7 @@
   color: #000;
   margin-right: 5px;
 }
-.details__price a {
+.details__price button {
   font-family: var(--font-vazirmatn), sans-serif;
   font-size: var(--font-24);
   color: #fff;
@@ -69,6 +69,11 @@
   width: 204px;
   height: 56px;
   text-align: center;
+  border: none;
+  cursor: pointer;
+}
+.details__price button:hover {
+  background-color: #1b8a3e;
 }
 .info {
   margin: 30px auto 0;

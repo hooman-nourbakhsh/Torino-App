@@ -1,7 +1,7 @@
-import Link from "next/link";
 import Image from "next/image";
 import { getTypeTour } from "@/constants/typeTour";
 import { e2p, sp } from "@/utils/replaceNumber";
+import ReserveButton from "@/element/ReserveButton";
 import UserTick from "@icons/user-tick.svg";
 import Map from "@icons/map.svg";
 import Guarantee from "@icons/medal-star.svg";
@@ -9,8 +9,7 @@ import Routing from "@icons/routing.svg";
 import Calendar from "@icons/calendar.svg";
 import Capacity from "@icons/profile-2user.svg";
 import Security from "@icons/security.svg";
-
-import styles from '@/template/tourDetailsPage/styles.module.css'
+import styles from "@/template/tourDetailsPage/styles.module.css";
 
 export default function TourDetails({ tourData }) {
   console.log(tourData);
@@ -41,7 +40,7 @@ export default function TourDetails({ tourData }) {
                 {sp(tourData.price)}
                 <span>تومان</span>
               </h4>
-              <Link href="/checkout">رزرو و خرید</Link>
+              <ReserveButton tourId={tourData.id} />
             </div>
           </div>
         </div>

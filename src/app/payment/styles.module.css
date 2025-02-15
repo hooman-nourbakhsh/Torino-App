@@ -1,0 +1,43 @@
+.container {
+  background-color: #ffffff;
+  max-width: 400px;
+  margin: 30px auto;
+  padding-top: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+.container svg {
+  width: 100px;
+  height: auto;
+}
+.container h2 {
+  color: var(--primary-color);
+}
+.container p {
+  font-family: var(--font-vazirmatn), sans-serif;
+}
+.container p span {
+  color: var(--complementry-color);
+  vertical-align: middle;
+}
+.container a {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: var(--font-14);
+  font-weight: 500;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.container a:hover {
+  background-color: var(--secondary-color);
+}
+.container p:nth-child(4) {
+  color: var(--text-color);
+  padding: 10px;
+  text-align: center;
+}
