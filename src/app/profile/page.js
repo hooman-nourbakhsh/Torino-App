@@ -1,15 +1,17 @@
 "use client";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { FadeLoader } from "react-spinners";
 import { useGetUserData } from "@/services/queries";
 import { useUpdateUserInfo } from "@/services/mutations";
+import Loading from "@/app/profile/loading";
+import Error from "@/app/error";
+import NothingFound from "@/element/NothingFound";
 import UserInfoForm from "@/template/profilePage/UserInfo";
 import PersonalInfoForm from "@/template/profilePage/PersonalInfo";
 import BankAccountInfoForm from "@/template/profilePage/BankAccountInfo";
 
 export default function ProfilePage() {
-  const { data: { data } = {}, isLoading, refetch } = useGetUserData();
+  const { data: { data } = {}, isLoading, error, refetch } = useGetUserData();
   const { mutate, isPending } = useUpdateUserInfo();
 
   const [modalStates, setModalStates] = useState({
@@ -18,24 +20,18 @@ export default function ProfilePage() {
     bankAccount: false,
   });
 
+  if (isLoading) return <Loading />;
+
+  if (error) return <Error reset={refetch} />;
+
+  if (!data || data.length === 0) return <NothingFound />;
+
   const toggleModal = (modalName) => {
     setModalStates((prev) => ({
       ...prev,
       [modalName]: !prev[modalName],
     }));
   };
-
-  if (isLoading) return <FadeLoader color="#28a745" speedMultiplier={2} cssOverride={{ margin: "5% auto" }} />;
-
-  if (!data)
-    return (
-      <div className="errorContainer">
-        <p className="errorText">مشکلی وجود دارد، لطفاً دوباره تلاش کنید.</p>
-        <button onClick={() => refetch()} className="retryButton">
-          بارگیری مجدد
-        </button>
-      </div>
-    );
 
   const submitHandler = (data) => {
     if (isPending) return;

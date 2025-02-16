@@ -1,22 +1,18 @@
 "use client";
-import { FadeLoader } from "react-spinners";
 import { useGetUserTours } from "@/services/queries";
+import Loading from "@/app/profile/loading";
+import Error from "@/app/error";
+import NothingFound from "@/element/NothingFound";
 import MyTours from "@/template/profilePage/MyTours";
 
 export default function MyToursPage() {
-  const { data: { data } = {}, isLoading, refetch } = useGetUserTours();
+  const { data: { data } = {}, isLoading, error, refetch } = useGetUserTours();
 
-  if (isLoading) return <FadeLoader color="#28a745" speedMultiplier={2} cssOverride={{ margin: "5% auto" }} />;
+  if (isLoading) return <Loading />;
 
-  if (!data)
-    return (
-      <div className="errorContainer">
-        <p className="errorText">مشکلی وجود دارد، لطفاً دوباره تلاش کنید.</p>
-        <button onClick={() => refetch()} className="retryButton">
-          بارگیری مجدد
-        </button>
-      </div>
-    );
-    
+  if (error) return <Error reset={refetch} />;
+
+  if (!data || data.length === 0) return <NothingFound />;
+
   return <MyTours myTours={data} />;
 }
