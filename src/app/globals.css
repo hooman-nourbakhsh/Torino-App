@@ -53,25 +53,32 @@ input[type="number"] {
 
 /*section error style */
 .errorContainer {
-  text-align: center;
-  margin-top: 5%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
 }
 .errorText {
-  font-size: var(--font-18);
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 36px;
   color: red;
+  margin-bottom: 30px;
+  word-spacing: 4px;
 }
 .retryButton {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: var(--primary-color);
-  color: white;
+  margin-top: 30px;
+  display: block;
   border: none;
-  border-radius: 5px;
-  font-size: var(--font-14);
+  border-radius: 16px;
+  background-color: rgba(216, 255, 225, 1);
+  color: var(--primary-color);
+  font-size: var(--font-28);
+  font-weight: 600;
+  padding: 8px 18px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
-  transition: 0.3s ease-in-out;
 }
 .retryButton:hover {
-  background-color: darkgreen;
+  background-color: var(--primary-color);
+  color: rgba(216, 255, 225, 1);
 }
