@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { DatePicker } from "zaman";
@@ -13,18 +12,11 @@ export default function PersonalInfoForm({ userData, submitHandler, isOpen, setI
   const {
     register,
     handleSubmit,
-    setValue,
     control,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(personalInfoSchema),
   });
-
-  useEffect(() => {
-    if (userData?.birthDate) {
-      setValue("birthDate", userData.birthDate);
-    }
-  }, [userData, setValue]);
 
   return (
     <div className={styles.form__container} style={{ margin: "24px auto" }}>
@@ -78,6 +70,7 @@ export default function PersonalInfoForm({ userData, submitHandler, isOpen, setI
               <Controller
                 control={control}
                 name="birthDate"
+                defaultValue={userData?.birthDate}
                 render={({ field: { onChange } }) => (
                   <DatePicker
                     accentColor="#28a745"
