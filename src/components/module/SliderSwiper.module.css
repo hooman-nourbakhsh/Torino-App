@@ -1,0 +1,27 @@
+.slider {
+  max-width: 640px;
+  overflow: hidden;
+}
+.navigation {
+  text-align: center;
+  display: flex;
+  gap: 20px;
+  width: fit-content;
+  align-items: center;
+  margin: 20px auto 0;
+}
+.slider img {
+  border-radius: 35px;
+  width: 389px;
+  height: 479px;
+  object-fit: cover;
+}
+.navigation span {
+  font-family: var(--font-vazirmatn), sans-serif;
+  font-weight: 500;
+  font-size: var(--font-24);
+}
+.navigation svg {
+  cursor: pointer;
+  width: 50%;
+}

@@ -1,5 +1,5 @@
-import Image from "next/image";
 import styles from "@/module/WhyTorino.module.css";
+import Slider from "@/module/SliderSwiper";
 
 export default function WhyTorino() {
   return (
@@ -21,7 +21,7 @@ export default function WhyTorino() {
         </p>
       </div>
       <div className={styles.whyTorino__slider}>
-        <Image src={"/images/pic1.webp"} alt="pic" width={389} height={479} />
+        <Slider />
       </div>
     </section>
   );
