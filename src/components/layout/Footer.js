@@ -25,7 +25,7 @@ export default function Footer() {
         </div>
         <div className={styles.legal}>
           <div className={styles.legal__info}>
-            <Image src="/images/logo.png" alt="logo-torino" width={146} height={44} />
+            <Image src="/images/Logo.png" alt="logo-torino" width={146} height={44} />
             <p>
               تلفن پشتیبانی: <span>{e2p("8574-021")}</span>
             </p>

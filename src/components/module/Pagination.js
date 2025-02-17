@@ -8,7 +8,7 @@ export default function Pagination({ data, onPageChange, itemPerPage = 10 }) {
   useEffect(() => {
     const currentData = data?.slice((currentPage - 1) * itemPerPage, currentPage * itemPerPage);
     onPageChange(currentData);
-  }, [currentPage, data, onPageChange]);
+  }, [currentPage, data, onPageChange, itemPerPage]);
 
   return (
     <div className={styles.pagination}>

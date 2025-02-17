@@ -1,4 +1,5 @@
 "use client";
+
 import { useGetUserTransactions } from "@/services/queries";
 import Loading from "@/app/profile/loading";
 import Error from "@/app/error";
