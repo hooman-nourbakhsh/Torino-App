@@ -16,8 +16,13 @@ export default function ReserveButton({ tourId }) {
         router.push("/checkout");
       },
       onError(error) {
-        console.log(error);
-        toast.error(data?.data.message);
+        if (error?.status === 401 || error?.status === 403) {
+          router.push("/login");
+          toast.error("برای رزرو و خرید باید وارد شوید");
+        } else {
+          console.log(error);
+          toast.error(error?.data.message);
+        }
       },
     });
   };

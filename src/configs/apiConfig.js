@@ -1,5 +1,6 @@
-import { getCookie, setCookie } from "@/utils/cookie";
 import axios from "axios";
+import { toast } from "react-toastify";
+import { getCookie, setCookie } from "@/utils/cookie";
 
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -27,19 +28,35 @@ api.interceptors.response.use(
   },
   async (error) => {
     const originalRequest = error.config;
-    if (error.response.status === 401 && !originalRequest._retry) {
+    if ((error.response.status === 401 && !originalRequest._retry) || error.response.status === 403) {
+      console.log("403", error.response.status);
       originalRequest._retry = true;
 
       const result = await getNewTokens();
-      if (result?.response?.status === 201) {
+      if (result?.response?.status === 200) {
         setCookie("accessToken", result?.response?.data.accessToken, 30);
-        setCookie("refreshToken", result?.response?.data.refreshToken, 360);
+        setCookie("refreshToken", refreshToken, 360);
         return api(originalRequest);
       } else {
         setCookie("accessToken", "", 0);
         setCookie("refreshToken", "", 0);
+
+        if (window.location.pathname !== "/" && ["/profile", "/payment", "/checkout"].some((path) => window.location.pathname.startsWith(path))) {
+          toast.error(
+            <>
+              لطفاً مجدداً وارد شوید! <br />
+              <br />
+              در حال هدایت به صفحه ورود ...
+            </>,
+            { toastId: "auth-error" }
+          );
+          setTimeout(() => {
+            window.location.replace("/login");
+          }, 2500);
+        }
       }
     }
+
     return Promise.reject(error.response);
   }
 );
@@ -51,7 +68,7 @@ const getNewTokens = async () => {
 
   try {
     const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/refresh-token`, { refreshToken });
-    return { response };
+    return { response, refreshToken };
   } catch (error) {
     return { error };
   }
