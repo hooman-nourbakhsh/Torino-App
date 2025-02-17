@@ -29,7 +29,6 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
     if ((error.response.status === 401 && !originalRequest._retry) || error.response.status === 403) {
-      console.log("403", error.response.status);
       originalRequest._retry = true;
 
       const result = await getNewTokens();

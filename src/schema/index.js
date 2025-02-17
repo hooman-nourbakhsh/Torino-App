@@ -1,4 +1,5 @@
 import { object, string, number } from "yup";
+import { p2e } from "@/utils/replaceNumber";
 
 export const userInfo = object({
   email: string()
@@ -27,4 +28,15 @@ export const bankAccountSchema = object({
     .min(10, "شماره حساب نباید کمتر از ۱۰ رقم باشد")
     .max(16, "شماره حساب نباید بیشتر از ۱۶ رقم باشد")
     .required("لطفاً شماره حساب را وارد کنید"),
+});
+
+export const mobileNumberSchema = object({
+  mobile: string()
+    .trim()
+    .required("لطفاً شماره موبایل را وارد کنید!!")
+    .length(11, "شماره موبایل باید دقیقاً ۱۱ رقم باشد")
+    .test("is-valid-mobile", "فرمت شماره موبایل معتبر نیست", (value) => {
+      const englishNumber = p2e(value);
+      return /^[0][9][0-9][0-9]{8,8}$/.test(englishNumber);
+    }),
 });

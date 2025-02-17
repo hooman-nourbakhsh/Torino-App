@@ -1,20 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import OtpInput from "react18-input-otp";
 import { useCheckOTP } from "@/services/mutations";
 import { e2p } from "@/utils/replaceNumber";
 import styles from "@/template/authForm/AuthForm.module.css";
 
-export default function CheckOTPForm({ mobile, setStep, setIsOpen }) {
+export default function CheckOTPForm({ mobile, setStep, setIsOpen, sendOtp }) {
   const { mutate, isPending } = useCheckOTP();
   const [code, setCode] = useState("");
   const [hasError, setHasError] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(30);
+  const [canResend, setCanResend] = useState(false);
 
-  const handleChange = (enteredOtp) => {
+  useEffect(() => {
+    if (timeLeft > 0) {
+      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+      return () => clearTimeout(timer);
+    } else {
+      setCanResend(true);
+    }
+  }, [timeLeft]);
+
+  const changeHandler = (enteredOtp) => {
     setCode(enteredOtp);
     if (hasError) setHasError(false);
+  };
+
+  const resendOTPHandler = () => {
+    sendOtp(true);
+    setTimeLeft(30);
+    setCanResend(false);
   };
 
   const checkOtpHandler = (event) => {
@@ -31,7 +48,6 @@ export default function CheckOTPForm({ mobile, setStep, setIsOpen }) {
           setStep(1);
         },
         onError: (error) => {
-          console.log(error);
           setHasError(true);
           toast.error(error?.data.message);
         },
@@ -48,7 +64,7 @@ export default function CheckOTPForm({ mobile, setStep, setIsOpen }) {
         </label>
         <OtpInput
           value={code}
-          onChange={handleChange}
+          onChange={changeHandler}
           numInputs={6}
           hasErrored={hasError}
           isInputNum={true}
@@ -64,6 +80,20 @@ export default function CheckOTPForm({ mobile, setStep, setIsOpen }) {
           }}
           errorStyle={{ border: "2px solid red" }}
         />
+        <div className={styles.resend}>
+          <span className={!canResend || isPending ? styles.show : styles.hide}>
+            ارسال مجدد کد تا{" "}
+            {e2p(
+              Math.floor(timeLeft / 60)
+                .toString()
+                .padStart(2, "0")
+            )}
+            :{e2p((timeLeft % 60).toString().padStart(2, "0"))}
+          </span>
+          <button type="button" onClick={resendOTPHandler} className={!canResend || isPending ? styles.hide : styles.show}>
+            ارسال مجدد کد
+          </button>
+        </div>
         <button type="submit" disabled={isPending || code.length !== 6}>
           ورود به تورینو
         </button>

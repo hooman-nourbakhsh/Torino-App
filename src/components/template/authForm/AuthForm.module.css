@@ -37,10 +37,10 @@
 .form__otp form input:focus {
   outline: none;
 }
-.form__otp form button {
+.form__otp form button[type="submit"] {
   width: 491px;
   height: 54px;
-  margin: 40px 0;
+  margin: 20px 0;
   border-radius: 6px;
   padding: 8px;
   background-color: var(--primary-color);
@@ -51,7 +51,7 @@
   font-weight: 500;
   font-size: var(--font-18);
 }
-.form__otp form button:disabled {
+.form__otp form button[type="submit"]:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
@@ -63,4 +63,35 @@
 }
 .label__checkOTP span {
   font-family: var(--font-vazirmatn);
+}
+.resend {
+  font-family: var(--font-vazirmatn);
+  display: inline-block;
+  text-align: center;
+  margin: 15px auto 0;
+}
+.resend span {
+  font-family: var(--font-vazirmatn);
+  color: var(--complementry-color);
+  cursor: not-allowed;
+}
+.resend button[type="button"] {
+  font-family: var(--font-vazirmatn);
+  vertical-align: text-top;
+  margin-right: 15px;
+  background-color: transparent;
+  border: none;
+  color: rgba(212, 0, 0, 1);
+  font-size: 16px;
+  cursor: pointer;
+}
+.resend .hide {
+  display: none;
+}
+.resend .show {
+  display: inline-block;
+}
+.validation {
+  margin-top: 10px;
+  color: rgba(212, 0, 0, 1);
 }

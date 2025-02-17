@@ -1,46 +1,39 @@
 "use client";
 
-import { useState } from "react";
-import { toast } from "react-toastify";
-import { useSendOTP } from "@/services/mutations";
-import { isValidMobile } from "@/utils/validation";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { e2p, p2e } from "@/utils/replaceNumber";
+import { mobileNumberSchema } from "@/schema/index";
 import styles from "@/template/authForm/AuthForm.module.css";
 
-export default function SendOTPForm({ mobile, setMobile, setStep }) {
-  const { mutate, isPending } = useSendOTP();
-  const [error, setError] = useState("");
+export default function SendOTPForm({ mobile, setMobile, sendOtp }) {
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(mobileNumberSchema),
+    defaultValues: { mobile },
+  });
 
-  const sendOtpHandler = (event) => {
-    event.preventDefault();
+  const changeHandler = (e) => {
+    const englishValue = p2e(e.target.value);
+    setMobile(englishValue);
+    setValue("mobile", englishValue);
+  };
 
-    if (isPending) return;
-
-    if (!isValidMobile(mobile)) return setError("شماره معتبر وارد کنید");
-    setError("");
-    mutate(
-      { mobile },
-      {
-        onSuccess: (data) => {
-          toast.success(data?.data.message);
-          toast.info(data?.data.code);
-          setStep(2);
-        },
-        onError: (error) => {
-          console.log(error);
-        },
-      }
-    );
+  const sendOtpHandler = () => {
+    sendOtp(false);
   };
 
   return (
     <div className={styles.form__otp}>
       <h4>ورود به تورینو</h4>
-      <form onSubmit={sendOtpHandler}>
-        <label className={styles.label__sendkOTP} htmlFor="phone">
-          شماره موبایل خود را وارد کنید
-        </label>
-        <input type="tel" id="phone" placeholder="۰۹۱۲۰۰۰۰۰۰۰" value={mobile} onChange={(e) => setMobile(e.target.value)} />
-        {!!error && error}
+      <form onSubmit={handleSubmit(sendOtpHandler)}>
+        <label className={styles.label__sendkOTP}>شماره موبایل خود را وارد کنید</label>
+        <input type="text" {...register("mobile")} value={e2p(mobile)} onChange={changeHandler} style={{ textAlign: "left" }} autoComplete="off" />
+        <p className={styles.validation}>{errors.mobile?.message || "‎"}</p>
         <button type="submit">ارسال کد تایید</button>
       </form>
     </div>
