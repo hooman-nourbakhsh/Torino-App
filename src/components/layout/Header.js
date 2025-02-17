@@ -4,8 +4,9 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useGetUserData } from "@/services/queries";
-import Profile from "@icons/profile.svg";
 import AuthForm from "@/template/authForm";
+import ProfileDropdown from "@/element/ProfileDropdown";
+import Profile from "@icons/profile.svg";
 import styles from "@/layout/Header.module.css";
 
 export default function Header() {
@@ -40,9 +41,7 @@ export default function Header() {
         </div>
 
         {data?.data ? (
-          <Link href="/profile" className={styles.nav__profile}>
-            <Profile /> {data?.data.mobile}
-          </Link>
+          <ProfileDropdown user={data?.data} />
         ) : (
           <button className={styles.nav__profile} onClick={toggleAuthModal}>
             <Profile /> ورود | ثبت نام
