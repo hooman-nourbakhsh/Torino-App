@@ -13,9 +13,7 @@ export default function Header() {
   const { data } = useGetUserData();
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleAuthModal = () => {
-    setIsOpen((prev) => !prev);
-  };
+  const toggleAuthModal = () => setIsOpen((prev) => !prev);
 
   return (
     <header className={styles.header}>

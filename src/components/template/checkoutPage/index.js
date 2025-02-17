@@ -1,5 +1,3 @@
-import Link from "next/link";
-import Image from "next/image";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { DatePicker } from "zaman";
@@ -12,14 +10,6 @@ import User from "@icons/profile-black.svg";
 import styles from "@/template/checkoutPage/styles.module.css";
 
 export default function Checkout({ userData, basketData, submitHandler }) {
-  if (!basketData)
-    return (
-      <div className={styles.empty__cart}>
-        <Image src="/images/empty-cart.webp" width={495} height={351} />
-        <Link href="/">بازگشت به صفحه اصلی</Link>
-      </div>
-    );
-
   const filteredSchema = personalInfoSchema.pick(["nationalCode", "birthDate", "gender"]);
 
   const {
