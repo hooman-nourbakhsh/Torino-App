@@ -95,3 +95,15 @@
   margin-top: 10px;
   color: rgba(212, 0, 0, 1);
 }
+.modal__close {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+}
+.modal__close path {
+  stroke: var(--text-color);
+}
+.modal__close:hover path {
+  stroke: red;
+}

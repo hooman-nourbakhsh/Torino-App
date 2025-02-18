@@ -17,4 +17,5 @@
 .modal__content {
   min-width: 2.5rem;
   min-height: 2.5rem;
+  position: relative;
 }

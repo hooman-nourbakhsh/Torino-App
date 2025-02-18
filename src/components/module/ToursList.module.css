@@ -2,6 +2,10 @@
   max-width: 1188px;
   margin: 0 auto 109px;
 }
+.tours__notfound {
+  color: red;
+  font-size: var(--font-18);
+}
 .tours h3 {
   margin-bottom: 11px;
   font-size: 32px;

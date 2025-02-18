@@ -6,6 +6,9 @@ import { useSendOTP } from "@/services/mutations";
 import SendOTPForm from "@/template/authForm/SendOTPForm";
 import CheckOTPForm from "@/template/authForm/CheckOTPForm";
 import ModalContainer from "@/modal/ModalContainer";
+import Close from "@icons/close.svg";
+import ArrowLeft from "@icons/arrow-left.svg";
+import styles from "@/template/authForm/AuthForm.module.css";
 
 export default function AuthForm({ isOpen, setIsOpen }) {
   const [step, setStep] = useState(1);
@@ -37,11 +40,13 @@ export default function AuthForm({ isOpen, setIsOpen }) {
     <>
       {step === 1 && (
         <ModalContainer setIsOpen={setIsOpen} isOpen={isOpen}>
+          <Close onClick={() => setIsOpen(false)} className={styles.modal__close} />
           <SendOTPForm mobile={mobile} setMobile={setMobile} setStep={setStep} sendOtp={sendOtp} />
         </ModalContainer>
       )}
       {step === 2 && (
         <ModalContainer setIsOpen={setIsOpen} isOpen={isOpen}>
+          <ArrowLeft onClick={() => setStep(1)} className={styles.modal__close} style={{ transform: "scale(0.7)" }} />
           <CheckOTPForm mobile={mobile} setStep={setStep} setIsOpen={setIsOpen} sendOtp={sendOtp} />
         </ModalContainer>
       )}
