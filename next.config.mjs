@@ -1,13 +1,17 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  output: "standalone",
   images: {
     remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "api-torino.liara.run",
+      },
       {
         protocol: "http",
         hostname: "localhost",
         port: "6500",
-        pathname: "/static/images/**",
       },
     ],
   },
