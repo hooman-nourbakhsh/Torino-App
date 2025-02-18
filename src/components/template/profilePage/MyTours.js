@@ -1,11 +1,15 @@
+import { useState } from "react";
 import { e2p, sp } from "@/utils/replaceNumber";
 import { getUUIDPart, PersianDate } from "@/utils/helper";
 import { getTypeTour } from "@/constants/typeTour";
 import { getTourStatus } from "@/utils/tourStatus";
+import Pagination from "@/module/Pagination";
 import Tours from "@icons/tours.svg";
 import styles from "@/template/profilePage/MyTours.module.css";
 
 export default function MyTours({ myTours }) {
+  const [currentData, setCurrentData] = useState([]);
+
   const renderTourCard = (tour) => {
     const { label, color } = getTourStatus(tour.startDate, tour.endDate);
     const tourType = getTypeTour(tour.fleetVehicle);
@@ -54,5 +58,10 @@ export default function MyTours({ myTours }) {
     );
   };
 
-  return <div className={styles.container}>{myTours?.map(renderTourCard)}</div>;
+  return (
+    <div className={styles.container}>
+      {currentData?.map(renderTourCard)}
+      <Pagination data={myTours} onPageChange={setCurrentData} itemPerPage={6} />
+    </div>
+  );
 }
