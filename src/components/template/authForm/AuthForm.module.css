@@ -40,7 +40,7 @@
 .form__otp form button[type="submit"] {
   width: 491px;
   height: 54px;
-  margin: 20px 0;
+  margin-top: 10px;
   border-radius: 6px;
   padding: 8px;
   background-color: var(--primary-color);
@@ -94,6 +94,7 @@
 .validation {
   margin-top: 10px;
   color: rgba(212, 0, 0, 1);
+  font-size: var(--font-14);
 }
 .modal__close {
   position: absolute;
@@ -106,4 +107,10 @@
 }
 .modal__close:hover path {
   stroke: red;
+}
+.check__otp h4 {
+  margin-bottom: 8px;
+}
+.check__otp button[type="submit"]:disabled {
+  margin-top: 20px;
 }

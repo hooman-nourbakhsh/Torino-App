@@ -34,9 +34,7 @@ export default function SendOTPForm({ mobile, setMobile, sendOtp }) {
         <label className={styles.label__sendkOTP}>شماره موبایل خود را وارد کنید</label>
         <input type="text" {...register("mobile")} value={e2p(mobile)} onChange={changeHandler} style={{ textAlign: "left" }} autoComplete="off" />
         <p className={styles.validation}>{errors.mobile?.message || "‎"}</p>
-        <button type="submit" style={{ marginTop: "35px" }}>
-          ارسال کد تایید
-        </button>
+        <button type="submit">ارسال کد تایید</button>
       </form>
     </div>
   );

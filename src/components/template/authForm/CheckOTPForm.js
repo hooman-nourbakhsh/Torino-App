@@ -43,6 +43,7 @@ export default function CheckOTPForm({ mobile, setStep, setIsOpen, sendOtp }) {
       { mobile, code },
       {
         onSuccess: () => {
+          toast.success("ورود با موفقیت انجام شد");
           setHasError(false);
           setIsOpen(false);
           setStep(1);
@@ -56,7 +57,7 @@ export default function CheckOTPForm({ mobile, setStep, setIsOpen, sendOtp }) {
   };
 
   return (
-    <div className={styles.form__otp}>
+    <div className={`${styles.form__otp} ${styles.check__otp}`}>
       <h4>کد تایید را وارد کنید.</h4>
       <form onSubmit={checkOtpHandler}>
         <label className={styles.label__checkOTP} htmlFor="phone">

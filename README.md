@@ -19,7 +19,7 @@ Torino is a modern tour booking web application built with **Next.js 14**. It pr
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** Next.js 14, React, CSS Modules
+- **Frontend:** Next.Js 14, React, CSS Modules
 - **State Management:** React Query
 - **Forms & Validation:** React Hook Form, Yup
 - **API Communication:** Axios
@@ -108,6 +108,3 @@ I would like to thank the open-source community and contributors who provide the
 ## **Enjoy exploring Torino !**
 
 Developed with ❤️ by **HooMaN** 🚀
-
-
-

@@ -37,19 +37,21 @@ export default function AuthForm({ isOpen, setIsOpen }) {
   };
 
   return (
-    <>
-      {step === 1 && (
-        <ModalContainer setIsOpen={setIsOpen} isOpen={isOpen}>
-          <Close onClick={() => setIsOpen(false)} className={styles.modal__close} />
-          <SendOTPForm mobile={mobile} setMobile={setMobile} setStep={setStep} sendOtp={sendOtp} />
-        </ModalContainer>
-      )}
-      {step === 2 && (
-        <ModalContainer setIsOpen={setIsOpen} isOpen={isOpen}>
-          <ArrowLeft onClick={() => setStep(1)} className={styles.modal__close} style={{ transform: "scale(0.7)" }} />
-          <CheckOTPForm mobile={mobile} setStep={setStep} setIsOpen={setIsOpen} sendOtp={sendOtp} />
-        </ModalContainer>
-      )}
-    </>
+    <ModalContainer setIsOpen={setIsOpen} isOpen={isOpen} animationClassName={isOpen ? "fade__in" : "fade__out"}>
+      <>
+        {step === 1 && (
+          <>
+            <Close onClick={() => setIsOpen(false)} className={styles.modal__close} />
+            <SendOTPForm mobile={mobile} setMobile={setMobile} setStep={setStep} sendOtp={sendOtp} />
+          </>
+        )}
+        {step === 2 && (
+          <>
+            <ArrowLeft onClick={() => setStep(1)} className={styles.modal__close} style={{ transform: "scale(0.7)" }} />
+            <CheckOTPForm mobile={mobile} setStep={setStep} setIsOpen={setIsOpen} sendOtp={sendOtp} />
+          </>
+        )}
+      </>
+    </ModalContainer>
   );
 }
