@@ -16,10 +16,10 @@ export default function TourDetails({ tourData }) {
     <section className={styles.tourDetails}>
       <div className={styles.container}>
         <div className={styles.details}>
-          <Image src={tourData.image} alt={tourData.title} width={397} height={265} />
+          <Image src={tourData?.image} alt={tourData?.title} width={397} height={265} priority/>
           <div className={styles.details__content}>
-            <h2>{tourData.title}</h2>
-            <h3>{tourData.options.join(" ، ")}</h3>
+            <h2>{tourData?.title}</h2>
+            <h3>{(tourData?.options ?? []).join(" ، ")}</h3>
             <ul className={styles.details__features}>
               <li>
                 <UserTick />
@@ -36,10 +36,10 @@ export default function TourDetails({ tourData }) {
             </ul>
             <div className={styles.details__price}>
               <h4>
-                {sp(tourData.price)}
+                {sp(tourData?.price)}
                 <span>تومان</span>
               </h4>
-              <ReserveButton tourId={tourData.id} />
+              <ReserveButton tourId={tourData?.id} />
             </div>
           </div>
         </div>
@@ -47,25 +47,25 @@ export default function TourDetails({ tourData }) {
           <ul>
             <li>
               <Routing /> <span>مبدا</span>
-              <p>{tourData.origin.name}</p>
+              <p>{tourData?.origin?.name}</p>
             </li>
             <li>
               <Calendar /> <span>تاریخ رفت</span>
-              <p>{e2p(new Date(tourData.startDate).toLocaleDateString("fa-IR", { day: "2-digit", month: "long", year: "numeric" }))}</p>
+              <p>{e2p(new Date(tourData?.startDate).toLocaleDateString("fa-IR", { day: "2-digit", month: "long", year: "numeric" }))}</p>
             </li>
             <li>
               <Calendar /> <span>تاریخ برگشت</span>
-              <p>{e2p(new Date(tourData.endDate).toLocaleDateString("fa-IR", { day: "2-digit", month: "long", year: "numeric" }))}</p>
+              <p>{e2p(new Date(tourData?.endDate).toLocaleDateString("fa-IR", { day: "2-digit", month: "long", year: "numeric" }))}</p>
             </li>
             <li>
-              {getTypeTour(tourData.fleetVehicle).icon} <span>حمل و نقل</span>
-              <p>{getTypeTour(tourData.fleetVehicle).label}</p>
+              {getTypeTour(tourData?.fleetVehicle).icon} <span>حمل و نقل</span>
+              <p>{getTypeTour(tourData?.fleetVehicle).label}</p>
             </li>
             <li>
               <Capacity /> <span>ظرفیت</span>
-              <p>حداکثر {e2p(tourData.availableSeats)} نفر</p>
+              <p>حداکثر {e2p(tourData?.availableSeats)} نفر</p>
             </li>
-            {tourData.insurance && (
+            {tourData?.insurance && (
               <li>
                 <Security /> <span>بیمه</span>
                 <p>بیمه ۵۰ هزار تومان</p>
