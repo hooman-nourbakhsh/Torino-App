@@ -6,12 +6,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "api-torino.liara.run",
-      },
-      {
-        protocol: "http",
-        hostname: "localhost",
-        port: "6500",
+        hostname: "**",
       },
     ],
   },
